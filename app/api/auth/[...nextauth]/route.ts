@@ -52,14 +52,37 @@ export const authOptions: AuthOptions = {
       },
     }),
   ],
+
   pages: {
     signIn: '/',
   },
+
   debug: process.env.NODE_ENV === 'development',
   session: {
     strategy: 'jwt',
   },
   secret: process.env.NEXTAUTH_SECRET,
+
+  callbacks: {
+    // Merge users with same email (Google + credentials)
+    async signIn({ user, account }) {
+      if (account?.provider !== 'credentials') {
+        const existingUser = await prisma.user.findUnique({
+          where: { email: user.email! },
+        });
+
+        if (existingUser && existingUser.id !== user.id) {
+          // Merge OAuth account to existing credentials user
+          await prisma.account.updateMany({
+            where: { userId: user.id },
+            data: { userId: existingUser.id },
+          });
+          await prisma.user.delete({ where: { id: user.id } });
+        }
+      }
+      return true;
+    },
+  },
 };
 
 const handler = NextAuth(authOptions);

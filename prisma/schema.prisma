@@ -20,7 +20,7 @@ model User {
   email String? @unique
   emailVerified DateTime?
   image String?
-  hashedPassword String
+  hashedPassword String?
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   favoriteIds String[] @db.ObjectId
@@ -43,7 +43,7 @@ model Account {
   token_type String?
   scope String?
   id_token String? @db.String
-  session_state String
+  session_state String?
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
