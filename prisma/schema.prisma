@@ -57,7 +57,7 @@ model Listing {
   imageSrc String
   createdAt DateTime @default(now())
   category String
-  roomCount String
+  roomCount Int
   bathroomCount Int
   guestCount Int
   locationValue String
