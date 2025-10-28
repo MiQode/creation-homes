@@ -8,6 +8,9 @@ import useCountries from '@/app/hooks/useCountries';
 import { useCallback, useMemo } from 'react';
 import { format } from 'date-fns';
 import Image from 'next/image';
+import HeartButton from '../HeartButton';
+import { FaLocationPin } from 'react-icons/fa6';
+import Button from '../Button';
 
 interface ListingCardProps {
   data: Listing;
@@ -16,7 +19,7 @@ interface ListingCardProps {
   disabled?: boolean;
   actionLable?: string;
   actionId?: string;
-  currentUer?: SafeUser | null;
+  currentUser?: SafeUser | null;
 }
 const ListingCard: React.FC<ListingCardProps> = ({
   data,
@@ -25,7 +28,7 @@ const ListingCard: React.FC<ListingCardProps> = ({
   disabled,
   actionLable,
   actionId = '',
-  currentUer,
+  currentUser,
 }) => {
   const router = useRouter();
   const { getByValue } = useCountries();
@@ -77,7 +80,28 @@ const ListingCard: React.FC<ListingCardProps> = ({
             src={data.imageSrc}
             className="object-cover h-full w-full group-hover:scale-110 transition"
           />
+          <div className="absolute top-3 right-3">
+            <HeartButton listingId={data.id} currentUser={currentUser} />
+          </div>
         </div>
+        <div className="font-semibold text-lg">
+          {location?.region}, {location?.label}
+        </div>
+        <div className="font-light text-neutral-500">
+          {reservationDate || data.category}
+        </div>
+        <div className="flex flex-row items-center gap-1">
+          <div className="font-semibold">$ {price}</div>
+          {!reservation && <div className="font-light">night</div>}
+        </div>
+        {onAction && actionLable && (
+          <Button
+            disabled={disabled}
+            small
+            label={actionLable}
+            onClick={handleCancel}
+          />
+        )}
       </div>
     </div>
   );
