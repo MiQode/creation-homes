@@ -1,23 +1,22 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
-import { Listing, Reservation } from '@/app/generated/prisma';
+import { Reservation } from '@/app/generated/prisma';
 
-import { SafeUser } from '@/app/types';
+import { SafeListing, SafeUser } from '@/app/types';
 import useCountries from '@/app/hooks/useCountries';
 import { useCallback, useMemo } from 'react';
 import { format } from 'date-fns';
 import Image from 'next/image';
 import HeartButton from '../HeartButton';
-import { FaLocationPin } from 'react-icons/fa6';
 import Button from '../Button';
 
 interface ListingCardProps {
-  data: Listing;
+  data: SafeListing;
   reservation?: Reservation;
   onAction?: (id: string) => void;
   disabled?: boolean;
-  actionLable?: string;
+  actionLabel?: string;
   actionId?: string;
   currentUser?: SafeUser | null;
 }
@@ -26,7 +25,7 @@ const ListingCard: React.FC<ListingCardProps> = ({
   reservation,
   onAction,
   disabled,
-  actionLable,
+  actionLabel,
   actionId = '',
   currentUser,
 }) => {
@@ -94,11 +93,11 @@ const ListingCard: React.FC<ListingCardProps> = ({
           <div className="font-semibold">$ {price}</div>
           {!reservation && <div className="font-light">night</div>}
         </div>
-        {onAction && actionLable && (
+        {onAction && actionLabel && (
           <Button
             disabled={disabled}
             small
-            label={actionLable}
+            label={actionLabel}
             onClick={handleCancel}
           />
         )}
