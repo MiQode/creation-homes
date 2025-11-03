@@ -1,3 +1,9 @@
+// ✅ Tell Next.js this page must be rendered dynamically at runtime
+export const dynamic = 'force-dynamic';
+
+// Optionally, also disable cache if needed:
+export const revalidate = 0;
+
 import getCurrentUser from './actions/getCurrentUser';
 import getListings, { IListingsParams } from './actions/getListings';
 
