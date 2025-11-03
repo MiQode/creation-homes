@@ -1,3 +1,6 @@
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 import type { Metadata } from 'next';
 import { Nunito } from 'next/font/google';
 import './globals.css';
@@ -23,7 +26,13 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const currentUser = await getCurrentUser();
+  // const currentUser = await getCurrentUser();
+  let currentUser = null;
+  try {
+    currentUser = await getCurrentUser();
+  } catch (error) {
+    console.error('Error fetching current user:', error);
+  }
 
   return (
     <html lang="en">
