@@ -39,6 +39,7 @@ const LoginModal = () => {
     signIn('credentials', {
       ...data,
       redirect: false,
+      callbackUrl: '/',
     }).then((callback) => {
       setIsLoading(false);
 
