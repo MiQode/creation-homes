@@ -24,6 +24,7 @@ enum STEPS {
   DESCRIPTION = 4,
   PRICE = 5,
 }
+
 const RentModal = () => {
   const router = useRouter();
   const rentModal = useRentModal();
