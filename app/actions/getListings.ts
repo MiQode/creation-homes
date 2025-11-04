@@ -89,6 +89,8 @@ export default async function getListings(params: IListingsParams) {
 
     return safeListings;
   } catch (error: unknown) {
-    throw new Error(error as string);
+    console.error('Error fetching listings:', error);
+    return []; // Return empty array instead of throwing
+    // throw new Error(error as string);
   }
 }
