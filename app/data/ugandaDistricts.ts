@@ -1,0 +1,313 @@
+export interface UgandaDistrict {
+  value: string;
+  label: string;
+  region: string;
+  subregion?: string;
+  latlng: [number, number];
+}
+
+export const ugandaDistricts: UgandaDistrict[] = [
+  // CENTRAL REGION - Buganda
+  {
+    value: 'kampala',
+    label: 'Kampala',
+    region: 'Central',
+    subregion: 'Kampala',
+    latlng: [0.3476, 32.5825],
+  },
+  {
+    value: 'wakiso',
+    label: 'Wakiso',
+    region: 'Central',
+    subregion: 'Kampala',
+    latlng: [0.4044, 32.4599],
+  },
+  {
+    value: 'mukono',
+    label: 'Mukono',
+    region: 'Central',
+    subregion: 'Kampala',
+    latlng: [0.3536, 32.7554],
+  },
+  {
+    value: 'buikwe',
+    label: 'Buikwe',
+    region: 'Central',
+    subregion: 'Kampala',
+    latlng: [0.32, 33.05],
+  },
+  {
+    value: 'buvuma',
+    label: 'Buvuma',
+    region: 'Central',
+    subregion: 'Kampala',
+    latlng: [-0.3833, 33.2667],
+  },
+  {
+    value: 'gomba',
+    label: 'Gomba',
+    region: 'Central',
+    subregion: 'Kampala',
+    latlng: [0.2, 31.6833],
+  },
+  {
+    value: 'kalangala',
+    label: 'Kalangala',
+    region: 'Central',
+    subregion: 'Kampala',
+    latlng: [-0.3114, 32.2281],
+  },
+  {
+    value: 'kalungu',
+    label: 'Kalungu',
+    region: 'Central',
+    subregion: 'Kampala',
+    latlng: [-0.0833, 31.7667],
+  },
+  {
+    value: 'kayunga',
+    label: 'Kayunga',
+    region: 'Central',
+    subregion: 'Kampala',
+    latlng: [0.7028, 32.8889],
+  },
+  {
+    value: 'kiboga',
+    label: 'Kiboga',
+    region: 'Central',
+    subregion: 'Kampala',
+    latlng: [0.9167, 31.7667],
+  },
+  {
+    value: 'kyankwanzi',
+    label: 'Kyankwanzi',
+    region: 'Central',
+    subregion: 'Kampala',
+    latlng: [1.0833, 31.6667],
+  },
+  {
+    value: 'luwero',
+    label: 'Luwero',
+    region: 'Central',
+    subregion: 'Kampala',
+    latlng: [0.8492, 32.4731],
+  },
+  {
+    value: 'lwengo',
+    label: 'Lwengo',
+    region: 'Central',
+    subregion: 'Kampala',
+    latlng: [-0.4167, 31.4],
+  },
+  {
+    value: 'lyantonde',
+    label: 'Lyantonde',
+    region: 'Central',
+    subregion: 'Kampala',
+    latlng: [-0.1, 31.15],
+  },
+  {
+    value: 'masaka',
+    label: 'Masaka',
+    region: 'Central',
+    subregion: 'Kampala',
+    latlng: [-0.3376, 31.734],
+  },
+  {
+    value: 'mityana',
+    label: 'Mityana',
+    region: 'Central',
+    subregion: 'Kampala',
+    latlng: [0.4175, 32.0225],
+  },
+  {
+    value: 'mpigi',
+    label: 'Mpigi',
+    region: 'Central',
+    subregion: 'Kampala',
+    latlng: [0.225, 32.3136],
+  },
+  {
+    value: 'mubende',
+    label: 'Mubende',
+    region: 'Central',
+    subregion: 'Kampala',
+    latlng: [0.5585, 31.3949],
+  },
+  {
+    value: 'nakaseke',
+    label: 'Nakaseke',
+    region: 'Central',
+    subregion: 'Kampala',
+    latlng: [0.8, 31.9],
+  },
+  {
+    value: 'nakasongola',
+    label: 'Nakasongola',
+    region: 'Central',
+    subregion: 'Kampala',
+    latlng: [1.3081, 32.4553],
+  },
+  {
+    value: 'rakai',
+    label: 'Rakai',
+    region: 'Central',
+    subregion: 'Kampala',
+    latlng: [-0.7031, 31.5253],
+  },
+  {
+    value: 'sembabule',
+    label: 'Sembabule',
+    region: 'Central',
+    subregion: 'Kampala',
+    latlng: [-0.0833, 30.75],
+  },
+
+  // EASTERN REGION
+  {
+    value: 'jinja',
+    label: 'Jinja',
+    region: 'Eastern',
+    subregion: 'Busoga',
+    latlng: [0.4244, 33.204],
+  },
+  {
+    value: 'bugiri',
+    label: 'Bugiri',
+    region: 'Eastern',
+    subregion: 'Busoga',
+    latlng: [0.5714, 33.7419],
+  },
+  {
+    value: 'buikwe',
+    label: 'Buikwe',
+    region: 'Eastern',
+    subregion: 'Busoga',
+    latlng: [0.32, 33.05],
+  },
+  {
+    value: 'buyende',
+    label: 'Buyende',
+    region: 'Eastern',
+    subregion: 'Busoga',
+    latlng: [1.1833, 33.15],
+  },
+  {
+    value: 'iganga',
+    label: 'Iganga',
+    region: 'Eastern',
+    subregion: 'Busoga',
+    latlng: [0.6094, 33.4689],
+  },
+  {
+    value: 'jinja',
+    label: 'Jinja',
+    region: 'Eastern',
+    subregion: 'Busoga',
+    latlng: [0.4244, 33.204],
+  },
+  {
+    value: 'kaliro',
+    label: 'Kaliro',
+    region: 'Eastern',
+    subregion: 'Busoga',
+    latlng: [1.05, 33.5],
+  },
+  {
+    value: 'kamuli',
+    label: 'Kamuli',
+    region: 'Eastern',
+    subregion: 'Busoga',
+    latlng: [0.947, 33.1197],
+  },
+  {
+    value: 'luuka',
+    label: 'Luuka',
+    region: 'Eastern',
+    subregion: 'Busoga',
+    latlng: [0.7, 33.3],
+  },
+  {
+    value: 'mayuge',
+    label: 'Mayuge',
+    region: 'Eastern',
+    subregion: 'Busoga',
+    latlng: [0.45, 33.4833],
+  },
+  {
+    value: 'namayingo',
+    label: 'Namayingo',
+    region: 'Eastern',
+    subregion: 'Busoga',
+    latlng: [0.3333, 33.7333],
+  },
+  {
+    value: 'namutumba',
+    label: 'Namutumba',
+    region: 'Eastern',
+    subregion: 'Busoga',
+    latlng: [0.8333, 33.6833],
+  },
+
+  // Add more districts as needed...
+
+  // NORTHERN REGION
+  {
+    value: 'gulu',
+    label: 'Gulu',
+    region: 'Northern',
+    subregion: 'Acholi',
+    latlng: [2.7747, 32.2989],
+  },
+  {
+    value: 'kitgum',
+    label: 'Kitgum',
+    region: 'Northern',
+    subregion: 'Acholi',
+    latlng: [3.2817, 32.8864],
+  },
+  {
+    value: 'lira',
+    label: 'Lira',
+    region: 'Northern',
+    subregion: 'Lango',
+    latlng: [2.2499, 32.8998],
+  },
+  {
+    value: 'arua',
+    label: 'Arua',
+    region: 'Northern',
+    subregion: 'West Nile',
+    latlng: [3.0197, 30.9108],
+  },
+
+  // WESTERN REGION
+  {
+    value: 'mbarara',
+    label: 'Mbarara',
+    region: 'Western',
+    subregion: 'Ankole',
+    latlng: [-0.6069, 30.6583],
+  },
+  {
+    value: 'kasese',
+    label: 'Kasese',
+    region: 'Western',
+    subregion: 'Rwenzori',
+    latlng: [0.1833, 30.0833],
+  },
+  {
+    value: 'fort-portal',
+    label: 'Fort Portal',
+    region: 'Western',
+    subregion: 'Toro',
+    latlng: [0.6714, 30.275],
+  },
+  {
+    value: 'hoima',
+    label: 'Hoima',
+    region: 'Western',
+    subregion: 'Bunyoro',
+    latlng: [1.4331, 31.3522],
+  },
+];

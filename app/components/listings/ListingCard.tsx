@@ -9,6 +9,7 @@ import { format } from 'date-fns';
 import Image from 'next/image';
 import HeartButton from '../HeartButton';
 import Button from '../Button';
+import useUgandaDistricts from '@/app/hooks/useUgandaDistricts';
 
 interface ListingCardProps {
   data: SafeListing;
@@ -29,7 +30,7 @@ const ListingCard: React.FC<ListingCardProps> = ({
   currentUser,
 }) => {
   const router = useRouter();
-  const { getByValue } = useCountries();
+  const { getByValue } = useUgandaDistricts();
 
   const location = getByValue(data.locationValue);
 

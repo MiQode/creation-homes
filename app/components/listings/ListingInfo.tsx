@@ -6,6 +6,7 @@ import { IconType } from 'react-icons';
 import Avatar from '../Avatar';
 import ListingCategory from './ListingCategory';
 import dynamic from 'next/dynamic';
+import useUgandaDistricts from '@/app/hooks/useUgandaDistricts';
 
 const Map = dynamic(() => import('../Map'), {
   ssr: false,
@@ -36,7 +37,7 @@ const ListingInfo: React.FC<ListingInfoProps> = ({
   category,
   locationValue,
 }) => {
-  const { getByValue } = useCountries();
+  const { getByValue } = useUgandaDistricts();
 
   const coordinates = getByValue(locationValue)?.latlng;
 

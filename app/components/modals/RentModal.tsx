@@ -15,6 +15,7 @@ import Input from '../inputs/Input';
 import axios from 'axios';
 import { useRouter } from 'next/navigation';
 import toast from 'react-hot-toast';
+import DistrictSelect from '../inputs/DistrictSelect';
 
 enum STEPS {
   CATEGORY = 0,
@@ -153,7 +154,7 @@ const RentModal = () => {
           title="Where is your place located?"
           subtitle="Help guests find you!"
         />
-        <CountrySelect
+        <DistrictSelect
           value={location}
           onChange={(value) => setCustomValue('location', value)}
         />

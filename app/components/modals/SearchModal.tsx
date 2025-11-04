@@ -8,10 +8,10 @@ import useSearchModal from '@/app/hooks/useSearchModal';
 import { useCallback, useMemo, useState } from 'react';
 import { Range } from 'react-date-range';
 import dynamic from 'next/dynamic';
-import CountrySelect, { CountrySelectValue } from '../inputs/CountrySelect';
 import Heading from '../Heading';
 import Calendar from '../inputs/Calendar';
 import Counter from '../inputs/Counter';
+import DistrictSelect, { DistrictSelectValue } from '../inputs/DistrictSelect';
 
 enum STEPS {
   LOCATION = 0,
@@ -24,7 +24,7 @@ const SearchModal = () => {
   const params = useSearchParams();
   const searchModal = useSearchModal();
 
-  const [location, setLocation] = useState<CountrySelectValue>();
+  const [location, setLocation] = useState<DistrictSelectValue>();
   const [step, setStep] = useState(STEPS.LOCATION);
   const [guestCount, setGuestCount] = useState(1);
   const [roomCount, setRoomCount] = useState(1);
@@ -122,9 +122,9 @@ const SearchModal = () => {
   let bodyContent = (
     <div className="flex flex-col gap-8">
       <Heading title="Where do you want to go" subtitle="Pick a category" />
-      <CountrySelect
+      <DistrictSelect
         value={location}
-        onChange={(value) => setLocation(value as CountrySelectValue)}
+        onChange={(value) => setLocation(value as DistrictSelectValue)}
       />
       <hr />
       <Map center={location?.latlng} />

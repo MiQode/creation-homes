@@ -1,4 +1,3 @@
-// components/Map.tsx
 'use client';
 
 import L from 'leaflet';
@@ -9,10 +8,9 @@ import 'leaflet/dist/leaflet.css';
 
 interface MapProps {
   center?: number[];
-  zoom?: number;
 }
 
-const Map: React.FC<MapProps> = ({ center, zoom }) => {
+const Map: React.FC<MapProps> = ({ center }) => {
   useEffect(() => {
     // Fix Leaflet's default icon issue with Next.js
     const DefaultIcon = L.Icon.Default.prototype as unknown as {
@@ -30,14 +28,10 @@ const Map: React.FC<MapProps> = ({ center, zoom }) => {
     });
   }, []);
 
-  // Default to Uganda's center if no center provided
-  const mapCenter = center || [1.3733, 32.2903]; // Uganda's geographic center
-  const mapZoom = zoom || (center ? 10 : 7); // Zoom 10 for districts, 7 for country view
-
   return (
     <MapContainer
-      center={mapCenter as L.LatLngExpression}
-      zoom={mapZoom}
+      center={(center as L.LatLngExpression) || [51, -0.09]}
+      zoom={center ? 4 : 2}
       scrollWheelZoom={false}
       className="h-[35vh] rounded-lg"
     >

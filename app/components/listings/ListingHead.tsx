@@ -6,6 +6,7 @@ import React from 'react';
 import Heading from '../Heading';
 import Image from 'next/image';
 import HeartButton from '../HeartButton';
+import useUgandaDistricts from '@/app/hooks/useUgandaDistricts';
 
 interface ListingHeadProps {
   title: string;
@@ -22,7 +23,7 @@ const ListingHead: React.FC<ListingHeadProps> = ({
   id,
   currentUser,
 }) => {
-  const { getByValue } = useCountries();
+  const { getByValue } = useUgandaDistricts();
 
   const location = getByValue(locationValue);
 
