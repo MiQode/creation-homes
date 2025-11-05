@@ -16,7 +16,7 @@ const About = () => {
               <div className="wpo-about-content">
                 <div className="about-title">
                   <span>Exclusive Offer</span>
-                  <h2>Enjoy Your Dream Vacation In Kampala</h2>
+                  <h2>Enjoy Your Dream Vacation In Tororo</h2>
                 </div>
                 <div className="wpo-about-content-inner">
                   <div className="about-info-wrap">

@@ -68,13 +68,13 @@ const ServiceSection = (props) => {
                       </div>
                       <div className="wpo-service-text">
                         <i className={`fi ${service.fIcon}`}></i>
-                        <Link
+                        {/* <Link
                           onClick={ClickHandler}
                           href="/service/[slug]"
                           as={`/service/${service.slug}`}
-                        >
-                          {service.title}
-                        </Link>
+                        > */}
+                        {service.title}
+                        {/* </Link> */}
                       </div>
                     </div>
                   ))}

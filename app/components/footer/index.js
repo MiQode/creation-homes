@@ -78,7 +78,7 @@ const Footer = (props) => {
                 </ul>
               </div>
             </div>
-            <div className="col col-lg-3 col-md-6 col-sm-12 col-12">
+            {/* <div className="col col-lg-3 col-md-6 col-sm-12 col-12">
               <div className="widget link-widget">
                 <div className="widget-title">
                   <h3>Important Link</h3>
@@ -111,7 +111,7 @@ const Footer = (props) => {
                   </li>
                 </ul>
               </div>
-            </div>
+            </div> */}
 
             <div className="col col-lg-3 col-md-6 col-sm-12 col-12">
               <div className="widget wpo-service-link-widget">
