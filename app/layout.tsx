@@ -54,6 +54,7 @@ export default async function RootLayout({
         <RentModal />
         <LoginModal />
         <RegisterModal />
+        {/* <Navbar /> */}
         <Navbar currentUser={currentUser} />
         {/* <Navbar topbarBlock={'wpo-header-style-2'} Logo={Logo} /> */}
 

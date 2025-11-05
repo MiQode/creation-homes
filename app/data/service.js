@@ -38,33 +38,33 @@ const Services = [
   {
     id: '3',
     fIcon: 'flaticon-swimmer',
-    title: 'Swimming Pool',
-    slug: 'Swimming-Pool',
+    title: 'DSTV',
+    slug: 'DSTV',
     description:
-      'Excepteur sint occaecat proident, sunt in culpa mollit est aborum.',
+      'All rooms including the lounge are well entertained with all channels around the world.',
     simg1: '/images/service/3.jpg',
     ssImg: '/images/service-single/pool.jpg',
   },
   {
     id: '4',
     fIcon: 'flaticon-mortar',
-    title: 'Spa Salon',
-    slug: 'Spa-Salon',
+    title: 'Tight Security',
+    slug: 'Security',
     description:
-      'Excepteur sint occaecat proident, sunt in culpa mollit est aborum.',
+      'We are fully secured with 24/7 CCTV cameras and security guards to ensure safety of our guests.',
     simg1: '/images/service/4.jpg',
     ssImg: '/images/service-single/salon.jpg',
   },
-  {
-    id: '5',
-    fIcon: 'flaticon-dumbell',
-    title: 'Exercise Space',
-    slug: 'Exercise-Space',
-    description:
-      'Excepteur sint occaecat proident, sunt in culpa mollit est aborum.',
-    simg1: '/images/service/5.jpg',
-    ssImg: '/images/service-single/gym.jpg',
-  },
+  // {
+  //   id: '5',
+  //   fIcon: 'flaticon-dumbell',
+  //   title: 'Exercise Space',
+  //   slug: 'Exercise-Space',
+  //   description:
+  //     'Excepteur sint occaecat proident, sunt in culpa mollit est aborum.',
+  //   simg1: '/images/service/5.jpg',
+  //   ssImg: '/images/service-single/gym.jpg',
+  // },
   {
     id: '6',
     fIcon: 'flaticon-wifi',
@@ -85,15 +85,15 @@ const Services = [
     simg1: '/images/service/7.jpg',
     ssImg: '/images/service-single/breakfast.jpg',
   },
-  {
-    id: '8',
-    fIcon: 'flaticon-more',
-    title: 'Other Service',
-    slug: 'Other-Service',
-    description:
-      'Excepteur sint occaecat proident, sunt in culpa mollit est aborum.',
-    simg1: '/images/service/8.jpg',
-    ssImg: '/images/service-single/1.jpg',
-  },
+  // {
+  //   id: '8',
+  //   fIcon: 'flaticon-more',
+  //   title: 'Other Service',
+  //   slug: 'Other-Service',
+  //   description:
+  //     'Excepteur sint occaecat proident, sunt in culpa mollit est aborum.',
+  //   simg1: '/images/service/8.jpg',
+  //   ssImg: '/images/service-single/1.jpg',
+  // },
 ];
 export default Services;

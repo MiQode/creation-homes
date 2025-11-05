@@ -7,16 +7,17 @@ export const revalidate = 0;
 import getCurrentUser from './actions/getCurrentUser';
 import getListings, { IListingsParams } from './actions/getListings';
 
-import Container from './components/Container';
 import EmptyState from './components/EmptyState';
-import ListingCard from './components/listings/ListingCard';
+import Banner from './components/banner/banner';
+import HeroSection from './components/hero/Hero';
 import Rooms from './components/Rooms/Rooms';
 import About from './components/about';
-import Destination from './components/Destination';
+import Destination from './components/Destination/Destination';
 import ServiceSection from './components/ServiceSection';
 import Testimonial from './components/Testimonial';
 import Newslatter from './components/Newslatter/Newslatter';
 import Footer from './components/footer';
+import Scrollbar from './components/scrollbar';
 interface HomeProps {
   searchParams: IListingsParams;
 }
@@ -46,6 +47,7 @@ const Home = async ({ searchParams }: HomeProps) => {
   return (
     // <ClientOnly>
     <>
+      {/* <HeroSection /> */}
       <Rooms />
       {/* <Container>
         <div className="pt-24 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-8">
@@ -66,8 +68,9 @@ const Home = async ({ searchParams }: HomeProps) => {
       {/* <PricingSection /> */}
       {/* <Testimonial /> */}
       {/* <BlogSection /> */}
-      <Newslatter />
+      {/* <Newslatter /> */}
       <Footer />
+      {/* <Scrollbar /> */}
     </>
   );
 };

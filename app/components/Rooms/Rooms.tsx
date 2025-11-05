@@ -35,16 +35,16 @@ const Rooms = async ({ searchParams }: RoomsProps) => {
   }
 
   return (
-    <div className="wpo-room-area section-padding mt-10">
+    <div className="wpo-room-area section-padding">
       <div className="container">
         <div className="row align-items-center justify-content-center">
           <div className="col-xl-6 col-md-8">
-            <SectionTitleS2 MainTitle={'Our Most Popular Room'} />
+            <SectionTitleS2 MainTitle={'Our Classy Homes'} />
           </div>
         </div>
         <div className="room-wrap ">
           <div className="row">
-            {listings.slice(0, 3).map((listing) => (
+            {listings.slice(0, 4).map((listing) => (
               <div className="col-lg-4 col-md-6 col-12" key={listing.id}>
                 <ListingCard currentUser={currentUser} data={listing} />
               </div>

@@ -221,6 +221,13 @@ export const ugandaDistricts: UgandaDistrict[] = [
     latlng: [0.947, 33.1197],
   },
   {
+    value: 'tororo',
+    label: 'Tororo',
+    region: 'Eastern',
+    subregion: 'Teso',
+    latlng: [0.75, 34.0833],
+  },
+  {
     value: 'luuka',
     label: 'Luuka',
     region: 'Eastern',

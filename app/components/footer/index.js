@@ -121,11 +121,11 @@ const Footer = (props) => {
                 <div className="contact-ft">
                   <ul>
                     <li>
-                      <i className="fi flaticon-placeholder"></i>Kampala Road,
-                      Sun City Plaza, Kampala, Uganda
+                      <i className="fi flaticon-placeholder"></i>Griefield Road,
+                      Plot 37, Nyangole Tororo Municipality, Uganda
                     </li>
                     <li>
-                      <i className="fi flaticon-phone-call"></i>+256 000 000 000
+                      <i className="fi flaticon-phone-call"></i>+256 784 971 942
                     </li>
                     <li>
                       <i className="fi flaticon-send"></i>info@creationhomes.com
