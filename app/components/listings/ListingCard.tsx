@@ -83,15 +83,44 @@ const ListingCard: React.FC<ListingCardProps> = ({
             <HeartButton listingId={data.id} currentUser={currentUser} />
           </div>
         </div>
-        <div className="font-semibold text-lg">
-          {location?.region}, {location?.label}
+        <div className="font-extrabold text-slate-700 text-2xl mt-1 hover:text-red-400 hover:transition">
+          {data.title}
         </div>
-        <div className="font-light text-neutral-500">
+        <div className="font-semibold text-slate-700 text-base mb-2">
+          {location?.label}, {location?.region} region | {data?.category}
+        </div>
+        <div className="flex flex-row items-center gap-4 font-semibold text-md">
+          <span className="font-light text-neutral-700">
+            <span className="flex flex-row items-center gap-1">
+              <i className="fi flaticon-bed mr-2"></i>
+              {/* <i className="fa-solid fa-house mr-2"></i> */}
+              {data.roomCount} Room{`${data.roomCount > 1 ? 's' : ''}`}
+            </span>
+          </span>
+
+          <span className="font-light text-neutral-700">
+            <span className="flex flex-row items-center gap-1">
+              <i className="fi flaticon-bed mr-2"></i>
+              {data.guestCount} Bed{`${data.guestCount > 1 ? 's' : ''}`}
+            </span>
+          </span>
+
+          <span className="font-light text-neutral-700">
+            <span className="flex flex-row items-center gap-1">
+              <i className="fi flaticon-bathtub mr-2"></i>
+              {data.bathroomCount} Bathroom
+              {`${data.bathroomCount > 1 ? 's' : ''}`}
+            </span>
+          </span>
+        </div>
+        {/* <div className="font-light text-neutral-500">
           {reservationDate || data.category}
-        </div>
+        </div> */}
         <div className="flex flex-row items-center gap-1">
-          <div className="font-semibold">$ {price}</div>
-          {!reservation && <div className="font-light">night</div>}
+          <div className="font-bold text-4xl text-red-400 mr-2">${price}</div>
+          {!reservation && (
+            <div className="font-semibold text-2xl text-slate-800">/ Night</div>
+          )}
         </div>
         {onAction && actionLabel && (
           <Button
