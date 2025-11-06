@@ -4,6 +4,8 @@ import { useState, useEffect } from 'react';
 import { Menu, Phone, X } from 'lucide-react';
 import UserMenu from './UserMenu';
 import { SafeUser } from '@/app/types';
+import Link from 'next/link';
+import Logo from './Logo';
 
 interface NavbarProps {
   currentUser?: SafeUser | null;
@@ -41,22 +43,23 @@ const Navbar: React.FC<NavbarProps> = ({ currentUser }) => {
           <div className="flex items-center justify-between h-20">
             {/* Logo */}
             <div className="shrink-0">
-              <a href="#home" className="flex items-center gap-2">
-                <div
+              <Link href="/" className="flex items-center gap-2">
+                <Logo />
+                {/* <div
                   className={`w-10 h-10 rounded-lg bg-linear-to-br from-blue-600 to-purple-600 flex items-center justify-center transition-all duration-300 ${
                     isScrolled ? 'shadow-lg' : ''
                   }`}
                 >
                   <span className="text-white font-bold text-xl">CH</span>
-                </div>
+                </div> */}
                 <span
                   className={`text-xl font-bold transition-colors duration-300 ${
-                    isScrolled ? 'text-gray-900' : 'text-white'
+                    isScrolled ? 'text-red-600' : 'text-white'
                   }`}
                 >
-                  CreationHomes
+                  Creation Homes
                 </span>
-              </a>
+              </Link>
             </div>
 
             {/* Desktop Navigation */}
@@ -67,8 +70,8 @@ const Navbar: React.FC<NavbarProps> = ({ currentUser }) => {
                   href={link.href}
                   className={`text-sm font-medium transition-all duration-300 hover:scale-105 ${
                     isScrolled
-                      ? 'text-gray-700 hover:text-blue-600'
-                      : 'text-white hover:text-blue-300'
+                      ? 'text-gray-700 hover:text-rose-600'
+                      : 'text-white hover:text-rose-300'
                   }`}
                 >
                   {link.name}
@@ -79,7 +82,7 @@ const Navbar: React.FC<NavbarProps> = ({ currentUser }) => {
             {/* Desktop CTA */}
             <div className="hidden md:flex items-center gap-4">
               <a
-                href="tel:+1234567890"
+                href="tel:+256784971942"
                 className={`flex items-center gap-2 text-sm font-medium transition-colors duration-300 ${
                   isScrolled ? 'text-gray-700' : 'text-white'
                 }`}
@@ -131,8 +134,8 @@ const Navbar: React.FC<NavbarProps> = ({ currentUser }) => {
                 onClick={() => setIsMobileMenuOpen(false)}
                 className={`block text-base font-medium transition-colors ${
                   isScrolled
-                    ? 'text-gray-700 hover:text-blue-600'
-                    : 'text-white hover:text-blue-300'
+                    ? 'text-gray-700 hover:text-rose-600'
+                    : 'text-white hover:text-rose-300'
                 }`}
               >
                 {link.name}
@@ -140,17 +143,18 @@ const Navbar: React.FC<NavbarProps> = ({ currentUser }) => {
             ))}
             <div className="pt-4 space-y-3">
               <a
-                href="tel:+1234567890"
+                href="tel:+256784971942"
                 className={`flex items-center gap-2 text-sm font-medium ${
                   isScrolled ? 'text-gray-700' : 'text-white'
                 }`}
               >
                 <Phone className="w-4 h-4" />
-                +123 456 7890
+                +256 784 971942
               </a>
-              <button className="w-full px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full font-semibold">
+              {/* <button className="w-full px-6 py-3 bg-linear-to-r from-blue-600 to-purple-600 text-white rounded-full font-semibold">
                 Book Now
-              </button>
+              </button> */}
+              <UserMenu currentUser={currentUser} />
             </div>
           </div>
         </div>

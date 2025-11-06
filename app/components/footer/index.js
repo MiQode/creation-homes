@@ -4,6 +4,7 @@ import Link from 'next/link';
 // import Logo from '/public/images/logo.png';
 import Services from '../../data/service';
 import Image from 'next/image';
+import Logo from '../navbar/Logo';
 
 const Footer = (props) => {
   const ClickHandler = () => {
@@ -18,15 +19,7 @@ const Footer = (props) => {
             <div className="col col-lg-3 col-md-6 col-sm-12 col-12">
               <div className="widget about-widget">
                 <div className="logo widget-title">
-                  <span className="text-2xl font-extrabold text-rose-400">
-                    CreationHomes
-                  </span>
-                  {/* <Image
-                    src="/images/logo.png"
-                    alt="footer"
-                    width={50}
-                    height={50}
-                  /> */}
+                  <Logo />
                 </div>
                 <p>
                   CreationHomes is your trusted partner in finding the perfect
@@ -42,7 +35,7 @@ const Footer = (props) => {
                   </li>
                   <li>
                     <Link onClick={ClickHandler} href="/">
-                      <i className="ti-twitter-alt"></i>
+                      <i className="ti-twitter"></i>
                     </Link>
                   </li>
                   <li>
@@ -50,11 +43,12 @@ const Footer = (props) => {
                       <i className="ti-instagram"></i>
                     </Link>
                   </li>
-                  <li>
+                  {/* <li>
                     <Link onClick={ClickHandler} href="/">
-                      <i className="ti-google"></i>
+                      <i className="ti-brand-tiktok"></i>
+                      <i className="bi bi-tiktok"></i>
                     </Link>
-                  </li>
+                  </li> */}
                 </ul>
               </div>
             </div>
