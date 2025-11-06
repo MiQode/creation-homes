@@ -12,8 +12,6 @@ import getCurrentUser from './actions/getCurrentUser';
 import RentModal from './components/modals/RentModal';
 import SearchModal from './components/modals/SearchModal';
 import Navbar from './components/navbar/Navbar';
-// import Navbar from './components/navbar/Navbar';
-import Logo from './../public/images/logo.png';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/animate.css';
 import '../styles/flaticon.css';
@@ -54,7 +52,6 @@ export default async function RootLayout({
         <RentModal />
         <LoginModal />
         <RegisterModal />
-        {/* <Navbar /> */}
         <Navbar currentUser={currentUser} />
         {/* <Navbar topbarBlock={'wpo-header-style-2'} Logo={Logo} /> */}
 

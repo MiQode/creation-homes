@@ -1,10 +1,10 @@
 import React, { Fragment } from 'react';
 import PageTitle from '../components/pagetitle/PageTitle';
+import About2 from '../components/about2/about2';
 // import Navbar from '../../components/Navbar';
 // import Footer from '../../components/footer';
 // import Scrollbar from '../../components/scrollbar';
 // import Logo from '/public/images/logo2.png';
-// import About2 from '../../components/about2/about2';
 // import Newslatter from '../../components/Newslatter/Newslatter';
 // import Destination from '../../components/Destination';
 // import FunFact from '../../components/FunFact';
@@ -18,8 +18,8 @@ const AboutPage = () => {
     <Fragment>
       {/* <Navbar hclass={'wpo-header-style-3'} Logo={Logo} /> */}
       <PageTitle pageTitle={'About Us'} pagesub={'About'} />
-      {/* <About2/>
-            <Destination/> 
+      <About2 />
+      {/* <Destination/> 
             <FunFact fClass={'section-padding'}/> 
             <Rooms/> 
             <ServiceSection2/> 

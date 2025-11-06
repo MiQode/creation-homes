@@ -64,7 +64,7 @@ const Home = async ({ searchParams }: HomeProps) => {
       </Container> */}
       <About />
       {/* <Destination /> */}
-      <ServiceSection />
+      {/* <ServiceSection /> */}
       {/* <PricingSection /> */}
       {/* <Testimonial /> */}
       {/* <BlogSection /> */}

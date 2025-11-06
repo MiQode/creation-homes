@@ -7,7 +7,6 @@ const About = () => {
   //  }
 
   return (
-    // <section className="bg-[url(/)] wpo-about-section-s2 section-padding">
     <section className="bg-[url('/images/about-bg.jpg')] bg-no-repeat bg-center bg-cover wpo-about-section-s2 section-padding">
       <div className="container-fluid">
         <div className="wpo-about-section-wrapper">
