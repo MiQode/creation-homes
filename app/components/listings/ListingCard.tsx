@@ -117,7 +117,12 @@ const ListingCard: React.FC<ListingCardProps> = ({
           {reservationDate || data.category}
         </div> */}
         <div className="flex flex-row items-center gap-1">
-          <div className="font-bold text-4xl text-red-400 mr-2">${price}</div>
+          <div className="font-bold text-4xl text-red-400 mr-2">
+            UGX{' '}
+            {typeof price === 'number'
+              ? price.toLocaleString('en-US', { maximumFractionDigits: 0 })
+              : price}
+          </div>
           {!reservation && (
             <div className="font-semibold text-2xl text-slate-800">/ Night</div>
           )}

@@ -45,7 +45,7 @@ const Rooms = async ({ searchParams }: RoomsProps) => {
         <div className="room-wrap ">
           <div className="row">
             {listings.slice(0, 4).map((listing) => (
-              <div className="col-lg-4 col-md-6 col-12" key={listing.id}>
+              <div className="col-lg-4 col-md-6 col-12 mb-8" key={listing.id}>
                 <ListingCard currentUser={currentUser} data={listing} />
               </div>
             ))}

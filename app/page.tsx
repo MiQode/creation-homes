@@ -9,7 +9,7 @@ import getListings, { IListingsParams } from './actions/getListings';
 
 import EmptyState from './components/EmptyState';
 import Banner from './components/banner/banner';
-import HeroSection from './components/hero/Hero';
+import HeroSection from './components/navbar/HeroSection';
 import Rooms from './components/Rooms/Rooms';
 import About from './components/about';
 import Destination from './components/Destination/Destination';
@@ -47,7 +47,7 @@ const Home = async ({ searchParams }: HomeProps) => {
   return (
     // <ClientOnly>
     <>
-      {/* <HeroSection /> */}
+      <HeroSection />
       <Rooms />
       {/* <Container>
         <div className="pt-24 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-8">

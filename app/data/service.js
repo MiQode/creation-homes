@@ -6,13 +6,13 @@
 // import simg6 from '/public/images/service/img-6.jpg';
 // import simg7 from '/public/images/service/img-7.jpg';
 
-// import serviceFood from '/public/images/service-single/food.jpg';
-// import servicePacking from '/public/images/service-single/parking.jpg';
-// import servicePool from '/public/images/service-single/pool.jpg';
-// import serviceSalon from '/public/images/service-single/salon.jpg';
-// import serviceGym from '/public/images/service-single/gym.jpg';
-// import serviceWifi from '/public/images/service-single/wifi.jpg';
-// import serviceBreakfast from '/images/service-single/1.jpg';
+import serviceFood from './../../public/images/service-single/food.jpg';
+import servicePacking from './../../public/images/service-single/parking.jpg';
+import servicePool from './../../public/images/service-single/pool.jpg';
+import serviceSalon from './../../public/images/service-single/salon.jpg';
+import serviceGym from './../.../../../public/images/service-single/gym.jpg';
+import serviceWifi from './../../public/images/service-single/wifi.jpg';
+import serviceBreakfast from './../../public/images/service-single/breakfast.jpg';
 
 const Services = [
   {
@@ -22,7 +22,7 @@ const Services = [
     slug: 'Delicious-Food',
     description:
       'Excepteur sint occaecat proident, sunt in culpa mollit est aborum.',
-    simg1: '/images/service/1.jpg',
+    simg1: serviceFood,
     ssImg: '/images/service-single/food.jpg',
   },
   {
@@ -37,7 +37,7 @@ const Services = [
   },
   {
     id: '3',
-    fIcon: 'flaticon-swimmer',
+    fIcon: 'flaticon-vision',
     title: 'DSTV',
     slug: 'DSTV',
     description:

@@ -62,8 +62,8 @@ const ServiceSection = (props) => {
                         <Image
                           src={service.simg1}
                           alt=""
-                          width={50}
-                          height={50}
+                          width={54}
+                          height={38}
                         />
                       </div>
                       <div className="wpo-service-text">
@@ -72,9 +72,9 @@ const ServiceSection = (props) => {
                           onClick={ClickHandler}
                           href="/service/[slug]"
                           as={`/service/${service.slug}`}
-                        > */}
-                        {service.title}
-                        {/* </Link> */}
+                        >
+                          {service.title}
+                        </Link> */}
                       </div>
                     </div>
                   ))}

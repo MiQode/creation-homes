@@ -21,7 +21,7 @@ const About = () => {
                 <div className="wpo-about-content-inner">
                   <div className="about-info-wrap">
                     <div className="about-info-left">
-                      <p>2 Days / 3 Night</p>
+                      <p>10 Days +</p>
                       <ul>
                         <li>
                           <i className="fa fa-star" aria-hidden="true"></i>
@@ -43,8 +43,10 @@ const About = () => {
                       </ul>
                     </div>
                     <div className="about-info-right">
-                      <p>Only</p>
-                      <h3>$2500</h3>
+                      <p>Per Night Only</p>
+                      <h3>
+                        <span className="text-base">UGX</span> 150,000
+                      </h3>
                     </div>
                     {/* <Link onClick={ClickHandler} className="theme-btn" href="/room">Book Now</Link> */}
                     <Link className="theme-btn" href="/room">
