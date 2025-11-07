@@ -262,7 +262,7 @@ img {
 }
 
 .section-padding {
-  padding: 120px 0;
+  padding: 120px 50px;
 }
 
 @media (max-width: 991px) {
