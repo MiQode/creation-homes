@@ -13,7 +13,7 @@ const PropertyMap = ({
   address = 'Griefield Road, Plot 37, Nyangole Tororo Municipality, Eastern Region, Uganda',
 }: PropertyMapProps) => {
   return (
-    <div className="my-8 px-4">
+    <div className="my-8 px-4 sm:px-6 md:px-8 lg:px-10">
       <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
         {/* Header */}
         <div className="p-6 border-b border-gray-100">

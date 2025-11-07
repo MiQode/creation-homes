@@ -118,7 +118,7 @@ const ListingCard: React.FC<ListingCardProps> = ({
         </div> */}
         <div className="flex flex-row items-center gap-1">
           <div className="font-bold text-4xl text-red-400 mr-2">
-            UGX{' '}
+            <span className="text-2xl">UGX</span>{' '}
             {typeof price === 'number'
               ? price.toLocaleString('en-US', { maximumFractionDigits: 0 })
               : price}

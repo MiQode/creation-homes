@@ -16,7 +16,7 @@ const galleryData = {
 
 const Amenities = () => {
   return (
-    <div className="wpo-room-area section-padding">
+    <div className="mt-8 px-4 sm:px-6 md:px-8 lg:px-10">
       <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 mb-8">
         <div className="container">
           <div className="row align-items-center justify-content-center">
