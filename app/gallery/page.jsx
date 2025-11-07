@@ -128,66 +128,68 @@ const galleryData = {
     },
 
     // Amenities
-    {
-      id: 11,
-      category: 'amenities',
-      title: 'Home Theater',
-      description: 'Private cinema room with 4K projector',
-      url: 'https://images.unsplash.com/photo-1598899134739-24c46f58b8c0?w=800',
-      featured: true,
-    },
-    {
-      id: 12,
-      category: 'amenities',
-      title: 'Gym',
-      description: 'Fully-equipped fitness center',
-      url: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=800',
-    },
-    {
-      id: 13,
-      category: 'amenities',
-      title: 'Wine Cellar',
-      description: 'Temperature-controlled wine storage',
-      url: 'https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=800',
-    },
-    {
-      id: 14,
-      category: 'amenities',
-      title: 'Game Room',
-      description: 'Entertainment space with pool table',
-      url: 'https://images.unsplash.com/photo-1574269909862-7e1d70bb8078?w=800',
-    },
-    {
-      id: 15,
-      category: 'amenities',
-      title: 'Spa',
-      description: 'Private spa with sauna and steam room',
-      url: 'https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=800',
-    },
+    // {
+    //   id: 11,
+    //   category: 'amenities',
+    //   title: 'Home Theater',
+    //   description: 'Private cinema room with 4K projector',
+    //   url: 'https://images.unsplash.com/photo-1598899134739-24c46f58b8c0?w=800',
+    //   featured: true,
+    // },
+    // {
+    //   id: 12,
+    //   category: 'amenities',
+    //   title: 'Gym',
+    //   description: 'Fully-equipped fitness center',
+    //   url: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=800',
+    // },
+    // {
+    //   id: 13,
+    //   category: 'amenities',
+    //   title: 'Wine Cellar',
+    //   description: 'Temperature-controlled wine storage',
+    //   url: 'https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=800',
+    // },
+    // {
+    //   id: 14,
+    //   category: 'amenities',
+    //   title: 'Game Room',
+    //   description: 'Entertainment space with pool table',
+    //   url: 'https://images.unsplash.com/photo-1574269909862-7e1d70bb8078?w=800',
+    // },
+    // {
+    //   id: 15,
+    //   category: 'amenities',
+    //   title: 'Spa',
+    //   description: 'Private spa with sauna and steam room',
+    //   url: 'https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=800',
+    // },
 
     // Surrounding
     {
       id: 16,
       category: 'surrounding',
-      title: 'Beach Access',
-      description: 'Private beach just steps away',
-      url: 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=800',
+      title: 'Town Access',
+      description: 'Trading center just steps away',
+      url: '/images/gallery/surrounding/town.jpg',
+      // url: 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=800',
       featured: true,
     },
     {
       id: 17,
       category: 'surrounding',
-      title: 'Sunset Views',
-      description: 'Breathtaking Pacific sunsets',
-      url: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800',
+      title: 'Rock of Tororo',
+      description: 'Breathtaking Tororo Rock View',
+      url: '/images/gallery/surrounding/tororo-rock.jpg',
+      // url: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800',
     },
-    {
-      id: 18,
-      category: 'surrounding',
-      title: 'Nearby Restaurants',
-      description: 'World-class dining nearby',
-      url: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800',
-    },
+    // {
+    //   id: 18,
+    //   category: 'surrounding',
+    //   title: 'Nearby Restaurants',
+    //   description: 'World-class dining nearby',
+    //   url: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800',
+    // },
     {
       id: 19,
       category: 'surrounding',
@@ -198,9 +200,10 @@ const galleryData = {
     {
       id: 20,
       category: 'surrounding',
-      title: 'Marina',
-      description: 'Yacht harbor 5 minutes away',
-      url: 'https://images.unsplash.com/photo-1569252165341-c1a6f5a5e3bc?w=800',
+      title: 'Fenced Yard',
+      description: 'Secure and spacious outdoor area',
+      url: '/images/gallery/surrounding/gate.jpg',
+      // url: 'https://images.unsplash.com/photo-1569252165341-c1a6f5a5e3bc?w=800',
     },
   ],
   amenitiesList: [
@@ -208,7 +211,7 @@ const galleryData = {
     { icon: Tv, label: '4K Smart TVs' },
     { icon: Coffee, label: 'Coffee Maker' },
     { icon: Wind, label: 'Air Conditioning' },
-    { icon: Dumbbell, label: 'Gym' },
+    // { icon: Dumbbell, label: 'Gym' },
     { icon: Car, label: 'Free Parking' },
     { icon: Utensils, label: 'Full Kitchen' },
     { icon: Bath, label: 'Hot Tub' },
@@ -264,13 +267,13 @@ const PropertyGallery = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Header */}
-      <div className="relative h-96 bg-gradient-to-br from-blue-600 via-purple-600 to-pink-600 overflow-hidden">
+      <div className="relative h-96 bg-linear-to-br from-blue-600 via-purple-600 to-pink-600 overflow-hidden">
         <div className="absolute inset-0 bg-black/30" />
         <div
           className="absolute inset-0 bg-cover bg-center opacity-40"
           style={{
-            backgroundImage:
-              "url('https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=1920')",
+            backgroundImage: "url('/images/gallery/gallery-bg.jpg')",
+            // "url('https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=1920')",
           }}
         />
 
