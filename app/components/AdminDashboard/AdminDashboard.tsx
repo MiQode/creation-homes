@@ -34,13 +34,16 @@ import {
   AdminStats,
   FormattedBooking,
   RevenueData,
+  SafeListing,
   SafeReservation,
   SafeUser,
 } from '@/app/types';
+import Logo from '../navbar/Logo';
 
 interface AdminDashboardProps {
   // initialBookings: SafeReservation[];
   initialBookings: FormattedBooking[];
+  properties?: SafeListing[];
   initialStats: AdminStats | null;
   // initialStats: any;
   // initialRevenueData: any[];
@@ -177,6 +180,7 @@ const mockData = {
 
 const AdminDashboard = ({
   initialBookings,
+  properties,
   initialStats,
   initialRevenueData,
   currentUser,
@@ -186,18 +190,9 @@ const AdminDashboard = ({
   const [selectedPeriod, setSelectedPeriod] = useState('This Month');
   const [loading, setLoading] = useState(true);
 
-  // State for real data
-  // const [stats, setStats] = useState(null);
-  // const [recentBookings, setRecentBookings] = useState([]);
-  // const [revenueData, setRevenueData] = useState([]);
-
   const [recentBookings] = useState<FormattedBooking[]>(initialBookings);
   const [stats] = useState<AdminStats | null>(initialStats);
   const [revenueData] = useState<RevenueData[]>(initialRevenueData);
-
-  // const [recentBookings] = useState(initialBookings);
-  // const [stats] = useState(initialStats);
-  // const [revenueData] = useState(initialRevenueData);
 
   // Format stats for display
   const formattedStats = useMemo(() => {
@@ -250,12 +245,12 @@ const AdminDashboard = ({
 
   const menuItems = [
     { id: 'dashboard', label: 'Dashboard', icon: LayoutDashboard },
-    { id: 'properties', label: 'Properties', icon: Home },
+    // { id: 'properties', label: 'Properties', icon: Home },
     { id: 'bookings', label: 'Bookings', icon: Calendar },
-    { id: 'users', label: 'Users', icon: Users },
-    { id: 'revenue', label: 'Revenue', icon: DollarSign },
-    { id: 'messages', label: 'Messages', icon: MessageSquare, badge: 3 },
-    { id: 'settings', label: 'Settings', icon: Settings },
+    // { id: 'users', label: 'Users', icon: Users },
+    // { id: 'revenue', label: 'Revenue', icon: DollarSign },
+    // { id: 'messages', label: 'Messages', icon: MessageSquare, badge: 3 },
+    // { id: 'settings', label: 'Settings', icon: Settings },
   ];
 
   type BookingStatus =
@@ -597,13 +592,16 @@ const AdminDashboard = ({
       >
         <div className="h-full flex flex-col">
           {/* Logo */}
-          <div className="h-20 flex items-center px-6 border-b border-gray-200">
+          {/* <div className="h-20 flex items-center px-6 border-b border-gray-200">
             <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center">
               <Home className="w-6 h-6 text-white" />
             </div>
             <span className="ml-3 text-xl font-bold text-gray-900">
               HotelLux
             </span>
+          </div> */}
+          <div className="logo widget-title mx-4 mt-4 mb-8">
+            <Logo />
           </div>
 
           {/* Menu */}

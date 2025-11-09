@@ -92,6 +92,26 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
                   }}
                   label="My favorites"
                 />
+                {currentUser.isAdmin && (
+                  <>
+                    <MenuItem
+                      onClick={() => {
+                        router.push('/admin');
+                        closeMenu();
+                      }}
+                      label="Admin Dashboard"
+                    />
+                    {/* <MenuItem
+                      onClick={() => {
+                        router.push('/admin/listings');
+
+                        closeMenu();
+                      }}
+                      label="Manage Listings"
+                    /> */}
+                  </>
+                )}
+
                 {/* <MenuItem
                   onClick={() => router.push('/reservations')}
                   label="My reservations"

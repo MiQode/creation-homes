@@ -1,21 +1,18 @@
 import AdminDashboard from './../components/AdminDashboard/AdminDashboard';
 import getReservations from '../actions/getReservations';
+import getListings from '../actions/getListings';
 import getCurrentUser from '../actions/getCurrentUser';
 import getAdminStats from '../actions/getAdminStats';
 import getRevenueData from '../actions/getRevenueData';
 import { redirect } from 'next/navigation';
-const statsPromise = getAdminStats();
-const revenueDataPromise = getRevenueData(6);
-const stats = await statsPromise;
-const revenueData = await revenueDataPromise;
 
 export default async function AdminPage() {
   const currentUser = await getCurrentUser();
 
   // Check if user is admin (you can add isAdmin field to User model)
-  // if (!currentUser || !currentUser.isAdmin) {
-  //   redirect('/');
-  // }
+  if (!currentUser || !currentUser.isAdmin) {
+    redirect('/');
+  }
 
   // Fetch data directly in Server Component
   const allReservations = await getReservations({});
@@ -37,9 +34,12 @@ export default async function AdminPage() {
     createdAt: reservation.createdAt,
   }));
 
+  const allProperties = await getListings({});
+
   return (
     <AdminDashboard
       initialBookings={recentBookings}
+      properies={allProperties}
       initialStats={stats}
       initialRevenueData={revenueData}
       currentUser={currentUser}
