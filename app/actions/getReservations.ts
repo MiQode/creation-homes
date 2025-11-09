@@ -28,6 +28,7 @@ export default async function getReservations(params: IParams) {
       where: query,
       include: {
         listing: true,
+        user: true,
       },
       orderBy: {
         createdAt: 'desc',
@@ -43,10 +44,20 @@ export default async function getReservations(params: IParams) {
         ...reservation.listing,
         createdAt: reservation.listing.createdAt.toISOString(),
       },
+      user: reservation.user
+        ? {
+            ...reservation.user,
+            createdAt: reservation.user.createdAt.toISOString(),
+            updatedAt: reservation.user.updatedAt.toISOString(),
+            emailVerified:
+              reservation.user.emailVerified?.toISOString() || null,
+          }
+        : null,
     }));
 
     return safeReservations;
   } catch (error) {
-    throw new Error(error as string);
+    console.error('Error fetching reservations:', error);
+    return [];
   }
 }

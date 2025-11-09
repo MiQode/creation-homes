@@ -28,6 +28,7 @@ export async function POST(request: Request) {
           startDate,
           endDate,
           totalPrice,
+          status: 'confirmed',
         },
       },
     },

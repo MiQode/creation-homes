@@ -25,6 +25,7 @@ model User {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   favoriteIds String[] @db.ObjectId
+  isAdmin Boolean @default(false)
 
 // Relations
   accounts Account[]
@@ -76,6 +77,7 @@ model Reservation {
   startDate DateTime
   endDate DateTime
   totalPrice Int
+  status     String   @default("confirmed")
   createdAt DateTime @default(now())
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
