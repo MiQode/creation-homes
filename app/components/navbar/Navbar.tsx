@@ -22,6 +22,7 @@ import useRentModal from '@/app/hooks/useRentModal';
 import Link from 'next/link';
 
 import Avatar from '../Avatar';
+import Logo from './Logo';
 
 interface NavbarProps {
   currentUser?: SafeUser | null;
@@ -91,20 +92,29 @@ const Navbar = ({ currentUser }: NavbarProps) => {
           <div className="flex items-center justify-between h-20">
             {/* Logo */}
             <Link href="/" className="flex items-center gap-3 group">
-              <div
-                className={`w-12 h-12 rounded-xl bg-linear-to-br from-rose-500 to-rose-600 flex items-center justify-center transition-all duration-300 ${
-                  isScrolled ? 'shadow-lg' : 'shadow-xl'
-                } group-hover:scale-105`}
-              >
-                <span className="text-white font-bold text-xl">CH</span>
+              <Logo />
+              <div className="flex flex-col items-center">
+                <span
+                  // className={`text-xl font-bold transition-colors duration-300 hidden sm:block ${
+                  //   isScrolled
+                  //     ? 'text-blue-950 font-extrabold text-3xl font-sans uppercase'
+                  //     : 'text-white'
+                  // }`}
+                  className={`text-2xl md:text-3xl font-extrabold tracking-widest transition-colors duration-300 ${
+                    isScrolled ? 'text-blue-950' : 'text-white'
+                  }`}
+                >
+                  CREATION
+                </span>
+
+                <div className="flex items-center">
+                  <div className="w-8 md:w-12 border-t-2 border-red-600"></div>
+                  <span className="text-lg md:text-xl font-bold tracking-tight text-red-600">
+                    HOMES
+                  </span>
+                  <div className="w-8 md:w-12 border-t-2 border-red-600"></div>
+                </div>
               </div>
-              <span
-                className={`text-xl font-bold transition-colors duration-300 hidden sm:block ${
-                  isScrolled ? 'text-gray-900' : 'text-white'
-                }`}
-              >
-                Creation Homes
-              </span>
             </Link>
 
             {/* Desktop Navigation */}
@@ -142,7 +152,26 @@ const Navbar = ({ currentUser }: NavbarProps) => {
 
               {/* User Menu Desktop */}
               <div className="relative">
-                <button
+                <button onClick={() => setIsUserMenuOpen(!isUserMenuOpen)}>
+                  {currentUser?.image ? (
+                    <div className="hidden md:block">
+                      <Avatar src={currentUser?.image} />
+                    </div>
+                  ) : (
+                    <div
+                      className={`w-8 h-8 rounded-full flex items-center justify-center ${
+                        isScrolled ? 'bg-gray-200' : 'bg-white/20'
+                      }`}
+                    >
+                      <User
+                        className={`w-5 h-5 ${
+                          isScrolled ? 'text-gray-600' : 'text-white'
+                        }`}
+                      />
+                    </div>
+                  )}
+                </button>
+                {/* <button
                   onClick={() => setIsUserMenuOpen(!isUserMenuOpen)}
                   className={`flex items-center gap-3 px-4 py-2 rounded-full border-2 transition-all duration-300 ${
                     isScrolled
@@ -177,7 +206,7 @@ const Navbar = ({ currentUser }: NavbarProps) => {
                       />
                     </div>
                   )}
-                </button>
+                </button> */}
 
                 {/* Desktop Dropdown */}
                 {isUserMenuOpen && (
@@ -260,7 +289,6 @@ const Navbar = ({ currentUser }: NavbarProps) => {
                             <button
                               onClick={() => {
                                 signOut();
-                                // closeMenu();
                               }}
                               className="w-full flex items-center gap-3 px-4 py-3 text-gray-700 hover:bg-gray-50 transition-colors"
                             >

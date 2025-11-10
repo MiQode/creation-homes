@@ -42,6 +42,7 @@ const Rooms = async ({ searchParams }: RoomsProps) => {
             <SectionTitleS2 MainTitle={'Our Classy Homes'} />
           </div>
         </div>
+
         <div className="room-wrap ">
           <div className="row">
             {listings.slice(0, 4).map((listing) => (

@@ -560,6 +560,7 @@ const AdminDashboard = ({
                     {booking.property}
                   </td>
                   <td className="py-3 px-4 text-sm text-gray-600">
+                    {/* {booking.checkIn} */}
                     {new Date(booking.checkIn).toLocaleDateString()}
                   </td>
                   <td className="py-3 px-4 text-sm text-gray-600">
@@ -891,7 +892,7 @@ const AdminDashboard = ({
           {/* User Profile */}
           <div className="p-4 border-t border-gray-200">
             <div className="flex items-center gap-3 mb-3">
-              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-400 to-purple-500" />
+              <div className="w-10 h-10 rounded-full bg-linear-to-br from-blue-400 to-purple-500" />
               <div className="flex-1">
                 <div className="font-semibold text-gray-900 text-sm">
                   Admin User
