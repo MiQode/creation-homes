@@ -39,6 +39,9 @@ import {
   SafeUser,
 } from '@/app/types';
 import Logo from '../navbar/Logo';
+import toast from 'react-hot-toast';
+import { deleteReservation } from '@/app/actions/admin/deleteReservation';
+import { updateReservationStatus } from '@/app/actions/admin/updateReservationStatus';
 
 interface AdminDashboardProps {
   // initialBookings: SafeReservation[];
@@ -188,9 +191,11 @@ const AdminDashboard = ({
   const [activeTab, setActiveTab] = useState('dashboard');
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [selectedPeriod, setSelectedPeriod] = useState('This Month');
-  const [loading, setLoading] = useState(true);
+  const [showActionMenu, setShowActionMenu] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
 
-  const [recentBookings] = useState<FormattedBooking[]>(initialBookings);
+  const [recentBookings, setRecentBookings] =
+    useState<FormattedBooking[]>(initialBookings);
   const [stats] = useState<AdminStats | null>(initialStats);
   const [revenueData] = useState<RevenueData[]>(initialRevenueData);
 
@@ -269,6 +274,205 @@ const AdminDashboard = ({
     inactive: 'bg-gray-100 text-gray-800',
     suspended: 'bg-red-100 text-red-800',
   };
+
+  const renderBookingsTable = () => (
+    <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+      <div className="flex items-center justify-between mb-6">
+        <h2 className="text-lg font-bold text-gray-900">Recent Bookings</h2>
+        <div className="flex gap-2">
+          <button className="px-4 py-2 text-sm border border-gray-300 rounded-lg hover:bg-gray-50 flex items-center gap-2">
+            <Download className="w-4 h-4" />
+            Export
+          </button>
+        </div>
+      </div>
+
+      <div className="overflow-x-auto">
+        <table className="w-full">
+          <thead>
+            <tr className="border-b border-gray-200">
+              <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">
+                Guest
+              </th>
+              <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">
+                Property
+              </th>
+              <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">
+                Check In
+              </th>
+              <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">
+                Check Out
+              </th>
+              <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">
+                Amount
+              </th>
+              <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">
+                Status
+              </th>
+              <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">
+                Actions
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {recentBookings.map((booking) => (
+              <tr
+                key={booking.id}
+                className="border-b border-gray-100 hover:bg-gray-50"
+              >
+                <td className="py-3 px-4">
+                  <div className="flex items-center gap-3">
+                    {booking.guestImage && (
+                      <img
+                        src={booking.guestImage}
+                        alt={booking.guest}
+                        className="w-8 h-8 rounded-full"
+                      />
+                    )}
+                    <div>
+                      <div className="text-sm font-medium text-gray-900">
+                        {booking.guest}
+                      </div>
+                      <div className="text-xs text-gray-500">
+                        {booking.guestEmail}
+                      </div>
+                    </div>
+                  </div>
+                </td>
+                <td className="py-3 px-4 text-sm text-gray-900">
+                  {booking.property}
+                </td>
+                <td className="py-3 px-4 text-sm text-gray-600">
+                  {new Date(booking.checkIn).toLocaleDateString()}
+                </td>
+                <td className="py-3 px-4 text-sm text-gray-600">
+                  {new Date(booking.checkOut).toLocaleDateString()}
+                </td>
+                <td className="py-3 px-4 text-sm font-semibold text-gray-900">
+                  ${booking.amount}
+                </td>
+                <td className="py-3 px-4">
+                  <span
+                    className={`px-3 py-1 rounded-full text-xs font-medium ${
+                      booking.status === 'confirmed'
+                        ? 'bg-green-100 text-green-800'
+                        : booking.status === 'pending'
+                        ? 'bg-yellow-100 text-yellow-800'
+                        : booking.status === 'cancelled'
+                        ? 'bg-red-100 text-red-800'
+                        : 'bg-gray-100 text-gray-800'
+                    }`}
+                  >
+                    {booking.status}
+                  </span>
+                </td>
+                <td className="py-3 px-4">
+                  <div className="relative">
+                    <button
+                      onClick={() =>
+                        setShowActionMenu(
+                          showActionMenu === booking.id ? null : booking.id
+                        )
+                      }
+                      className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
+                      disabled={isLoading}
+                    >
+                      <MoreVertical className="w-5 h-5 text-gray-600" />
+                    </button>
+
+                    {/* Action Menu Dropdown */}
+                    {showActionMenu === booking.id && (
+                      <div className="absolute right-0 mt-2 w-56 bg-white rounded-lg shadow-lg border border-gray-200 z-10">
+                        <div className="py-2">
+                          <button
+                            onClick={() => {
+                              /* View details */
+                            }}
+                            className="w-full px-4 py-2 text-left text-sm text-gray-700 hover:bg-gray-50 flex items-center gap-2"
+                          >
+                            <Eye className="w-4 h-4" />
+                            View Details
+                          </button>
+
+                          <button
+                            onClick={() => {
+                              /* Edit reservation */
+                            }}
+                            className="w-full px-4 py-2 text-left text-sm text-gray-700 hover:bg-gray-50 flex items-center gap-2"
+                          >
+                            <Edit className="w-4 h-4" />
+                            Edit Reservation
+                          </button>
+
+                          <button
+                            onClick={() => {
+                              /* Message guest */
+                            }}
+                            className="w-full px-4 py-2 text-left text-sm text-gray-700 hover:bg-gray-50 flex items-center gap-2"
+                          >
+                            <MessageSquare className="w-4 h-4" />
+                            Message Guest
+                          </button>
+
+                          <div className="border-t border-gray-100 my-2" />
+
+                          {booking.status === 'pending' && (
+                            <button
+                              onClick={() =>
+                                handleStatusChange(booking.id, 'confirmed')
+                              }
+                              className="w-full px-4 py-2 text-left text-sm text-green-700 hover:bg-green-50 flex items-center gap-2"
+                            >
+                              <CheckCircle className="w-4 h-4" />
+                              Confirm Booking
+                            </button>
+                          )}
+
+                          {booking.status !== 'cancelled' && (
+                            <button
+                              onClick={() =>
+                                handleStatusChange(booking.id, 'cancelled')
+                              }
+                              className="w-full px-4 py-2 text-left text-sm text-orange-700 hover:bg-orange-50 flex items-center gap-2"
+                            >
+                              <XCircle className="w-4 h-4" />
+                              Cancel Booking
+                            </button>
+                          )}
+
+                          {booking.status === 'confirmed' && (
+                            <button
+                              onClick={() =>
+                                handleStatusChange(booking.id, 'completed')
+                              }
+                              className="w-full px-4 py-2 text-left text-sm text-blue-700 hover:bg-blue-50 flex items-center gap-2"
+                            >
+                              <CheckCircle className="w-4 h-4" />
+                              Mark as Completed
+                            </button>
+                          )}
+
+                          <div className="border-t border-gray-100 my-2" />
+
+                          <button
+                            onClick={() => handleDeleteReservation(booking.id)}
+                            className="w-full px-4 py-2 text-left text-sm text-red-700 hover:bg-red-50 flex items-center gap-2"
+                          >
+                            <Trash2 className="w-4 h-4" />
+                            Delete Reservation
+                          </button>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
 
   const renderDashboard = () => (
     <div className="space-y-6">
@@ -582,6 +786,58 @@ const AdminDashboard = ({
     }
   };
 
+  const handleStatusChange = async (
+    reservationId: string,
+    newStatus: string
+  ) => {
+    setIsLoading(true);
+    try {
+      const result = await updateReservationStatus(reservationId, newStatus);
+
+      if (result.success) {
+        toast.success('Reservation status updated');
+        // Update local state
+        setRecentBookings((prev) =>
+          prev.map((booking) =>
+            booking.id === reservationId
+              ? { ...booking, status: newStatus }
+              : booking
+          )
+        );
+      } else {
+        toast.error(result.error || 'Failed to update status');
+      }
+    } catch (error) {
+      toast.error('Something went wrong');
+    } finally {
+      setIsLoading(false);
+      setShowActionMenu(null);
+    }
+  };
+
+  const handleDeleteReservation = async (reservationId: string) => {
+    if (!confirm('Are you sure you want to delete this reservation?')) {
+      return;
+    }
+
+    setIsLoading(true);
+    try {
+      const result = await deleteReservation(reservationId);
+
+      if (result.success) {
+        toast.success('Reservation deleted');
+        setRecentBookings((prev) => prev.filter((b) => b.id !== reservationId));
+      } else {
+        toast.error(result.error || 'Failed to delete reservation');
+      }
+    } catch (error) {
+      toast.error('Something went wrong');
+    } finally {
+      setIsLoading(false);
+      setShowActionMenu(null);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Sidebar */}
@@ -640,7 +896,9 @@ const AdminDashboard = ({
                 <div className="font-semibold text-gray-900 text-sm">
                   Admin User
                 </div>
-                <div className="text-xs text-gray-600">admin@hotellux.com</div>
+                <div className="text-xs text-gray-600">
+                  {currentUser?.email}
+                </div>
               </div>
             </div>
             <button className="w-full flex items-center gap-2 px-4 py-2 text-red-600 hover:bg-red-50 rounded-lg transition-colors">
