@@ -13,7 +13,6 @@ import {
   Mail,
 } from 'lucide-react';
 import { SafeUser } from '@/app/types';
-import UserMenu from './UserMenu';
 
 interface NavbarProps {
   currentUser?: SafeUser | null;
@@ -55,12 +54,6 @@ const HeroSection: React.FC<NavbarProps> = ({ currentUser }) => {
     // Handle search logic here
   };
 
-  const navLinks = [
-    { name: 'Home', href: '/' },
-    { name: 'About', href: '/' },
-    { name: 'Contact', href: '/c' },
-  ];
-
   return (
     <>
       <div
@@ -101,14 +94,14 @@ const HeroSection: React.FC<NavbarProps> = ({ currentUser }) => {
             <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold text-white leading-tight animate-fade-in-up animation-delay-200">
               Discover Your Perfect
               <span className="block mt-2 bg-linear-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
-                Luxury Escape
+                Extraordinary Living
               </span>
             </h1>
 
             {/* Subheading */}
             <p className="max-w-3xl mx-auto text-lg sm:text-xl text-white leading-relaxed animate-fade-in-up animation-delay-400">
-              Experience world-class hospitality in breathtaking destinations.
-              From the confortable countryside, find your ideal sanctuary.
+              Experience world-class hospitality in a breathtaking destination.
+              From our confortable countryside, find your ideal sanctuary.
             </p>
 
             {/* CTA Buttons */}

@@ -9,7 +9,7 @@ import getListings, { IListingsParams } from './actions/getListings';
 
 import EmptyState from './components/EmptyState';
 import Banner from './components/banner/banner';
-import HeroSection from './components/navbar/HeroSection';
+import HeroSection from './components/HeroSection';
 import Rooms from './components/Rooms/Rooms';
 import About from './components/about';
 import Amenities from './components/Amenities/Amenities';

@@ -100,7 +100,7 @@ const Navbar = ({ currentUser }: NavbarProps) => {
                   //     ? 'text-blue-950 font-extrabold text-3xl font-sans uppercase'
                   //     : 'text-white'
                   // }`}
-                  className={`text-2xl md:text-3xl font-extrabold tracking-widest transition-colors duration-300 ${
+                  className={`text-2xl md:text-3xl font-extrabold font-sans tracking-widest transition-colors duration-300 ${
                     isScrolled ? 'text-blue-950' : 'text-white'
                   }`}
                 >
