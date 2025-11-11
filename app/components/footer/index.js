@@ -72,7 +72,7 @@ const Footer = () => {
                       {/* Facebook */}
 
                       <a
-                        href="https://facebook.com/creationhomes"
+                        href="https://www.facebook.com/profile.php?id=61583459638455&mibextid=ZbWKwL"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="w-12 h-12 bg-blue-600 hover:bg-blue-700 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110"
@@ -90,7 +90,7 @@ const Footer = () => {
                       {/* Instagram */}
 
                       <a
-                        href="https://instagram.com/creationhomes"
+                        href="https://www.instagram.com/creationhomesuganda?igsh=bTNvbjU5amJzNWVz"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="w-12 h-12 bg-gradient-to-br from-purple-600 via-pink-600 to-orange-500 hover:opacity-90 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110"
