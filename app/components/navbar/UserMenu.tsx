@@ -101,14 +101,13 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
                       }}
                       label="Admin Dashboard"
                     />
-                    {/* <MenuItem
+                    <MenuItem
                       onClick={() => {
-                        router.push('/admin/listings');
-
+                        rentModal.onOpen();
                         closeMenu();
                       }}
-                      label="Manage Listings"
-                    /> */}
+                      label="Create Listing"
+                    />
                   </>
                 )}
 
