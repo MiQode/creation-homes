@@ -42,6 +42,7 @@ import Logo from '../navbar/Logo';
 import toast from 'react-hot-toast';
 import { deleteReservation } from '@/app/actions/admin/deleteReservation';
 import { updateReservationStatus } from '@/app/actions/admin/updateReservationStatus';
+import CreateListingAdmin from './CreateListingAdmin';
 
 interface AdminDashboardProps {
   // initialBookings: SafeReservation[];
@@ -191,7 +192,7 @@ const AdminDashboard = ({
   const [activeTab, setActiveTab] = useState('dashboard');
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [selectedPeriod, setSelectedPeriod] = useState('This Month');
-  const [showActionMenu, setShowActionMenu] = useState(null);
+  const [showActionMenu, setShowActionMenu] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
 
   const [recentBookings, setRecentBookings] =
@@ -248,15 +249,17 @@ const AdminDashboard = ({
     ];
   }, [stats]);
 
-  const menuItems = [
-    { id: 'dashboard', label: 'Dashboard', icon: LayoutDashboard },
-    // { id: 'properties', label: 'Properties', icon: Home },
-    { id: 'bookings', label: 'Bookings', icon: Calendar },
-    // { id: 'users', label: 'Users', icon: Users },
-    // { id: 'revenue', label: 'Revenue', icon: DollarSign },
-    // { id: 'messages', label: 'Messages', icon: MessageSquare, badge: 3 },
-    // { id: 'settings', label: 'Settings', icon: Settings },
-  ];
+  const menuItems: { id: string; label: string; icon: any; badge?: number }[] =
+    [
+      { id: 'dashboard', label: 'Dashboard', icon: LayoutDashboard },
+      { id: 'properties', label: 'Properties', icon: Home },
+      { id: 'create-listing', label: 'Create Listing', icon: Plus },
+      { id: 'bookings', label: 'Bookings', icon: Calendar },
+      { id: 'users', label: 'Users', icon: Users },
+      // { id: 'revenue', label: 'Revenue', icon: DollarSign },
+      // { id: 'messages', label: 'Messages', icon: MessageSquare, badge: 3 },
+      // { id: 'settings', label: 'Settings', icon: Settings },
+    ];
 
   type BookingStatus =
     | 'confirmed'
@@ -354,13 +357,8 @@ const AdminDashboard = ({
                 <td className="py-3 px-4">
                   <span
                     className={`px-3 py-1 rounded-full text-xs font-medium ${
-                      booking.status === 'confirmed'
-                        ? 'bg-green-100 text-green-800'
-                        : booking.status === 'pending'
-                        ? 'bg-yellow-100 text-yellow-800'
-                        : booking.status === 'cancelled'
-                        ? 'bg-red-100 text-red-800'
-                        : 'bg-gray-100 text-gray-800'
+                      statusColors[booking.status as BookingStatus] ||
+                      'bg-gray-100 text-gray-800'
                     }`}
                   >
                     {booking.status}
@@ -371,7 +369,7 @@ const AdminDashboard = ({
                     <button
                       onClick={() =>
                         setShowActionMenu(
-                          showActionMenu === booking.id ? null : booking.id
+                          showActionMenu === booking.id ? null : booking.id,
                         )
                       }
                       className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
@@ -573,7 +571,8 @@ const AdminDashboard = ({
                   <td className="py-3 px-4">
                     <span
                       className={`px-3 py-1 rounded-full text-xs font-medium ${
-                        statusColors[booking.status]
+                        statusColors[booking.status as BookingStatus] ||
+                        'bg-gray-100 text-gray-800'
                       }`}
                     >
                       {booking.status}
@@ -599,7 +598,10 @@ const AdminDashboard = ({
         <h2 className="text-2xl font-bold text-gray-900">
           Properties Management
         </h2>
-        <button className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+        <button
+          onClick={() => setActiveTab('create-listing')}
+          className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+        >
           <Plus className="w-5 h-5" />
           Add Property
         </button>
@@ -632,7 +634,7 @@ const AdminDashboard = ({
             key={property.id}
             className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition-shadow"
           >
-            <div className="h-48 bg-gradient-to-br from-blue-400 to-purple-500" />
+            <div className="h-48 bg-linear-to-br from-blue-400 to-purple-500" />
             <div className="p-6">
               <div className="flex items-start justify-between mb-4">
                 <div>
@@ -646,7 +648,8 @@ const AdminDashboard = ({
                 </div>
                 <span
                   className={`px-3 py-1 rounded-full text-xs font-medium ${
-                    statusColors[property.status]
+                    statusColors[property.status as BookingStatus] ||
+                    'bg-gray-100 text-gray-800'
                   }`}
                 >
                   {property.status}
@@ -749,7 +752,8 @@ const AdminDashboard = ({
                   <td className="py-4 px-6">
                     <span
                       className={`px-3 py-1 rounded-full text-xs font-medium ${
-                        statusColors[user.status]
+                        statusColors[user.status as BookingStatus] ||
+                        'bg-gray-100 text-gray-800'
                       }`}
                     >
                       {user.status}
@@ -780,6 +784,10 @@ const AdminDashboard = ({
         return renderDashboard();
       case 'properties':
         return renderProperties();
+      case 'create-listing':
+        return (
+          <CreateListingAdmin onSuccess={() => setActiveTab('properties')} />
+        );
       case 'users':
         return renderUsers();
       default:
@@ -789,7 +797,7 @@ const AdminDashboard = ({
 
   const handleStatusChange = async (
     reservationId: string,
-    newStatus: string
+    newStatus: 'confirmed' | 'pending' | 'cancelled' | 'completed' | 'no-show',
   ) => {
     setIsLoading(true);
     try {
@@ -801,9 +809,9 @@ const AdminDashboard = ({
         setRecentBookings((prev) =>
           prev.map((booking) =>
             booking.id === reservationId
-              ? { ...booking, status: newStatus }
-              : booking
-          )
+              ? { ...booking, status: newStatus as any }
+              : booking,
+          ),
         );
       } else {
         toast.error(result.error || 'Failed to update status');

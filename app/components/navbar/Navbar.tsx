@@ -357,7 +357,7 @@ const Navbar = ({ currentUser }: NavbarProps) => {
               {/* User Section */}
               <div className="pb-6 border-b border-gray-200">
                 {currentUser ? (
-                  <div className="flex items-center gap-4 p-4 bg-gradient-to-br from-rose-50 to-pink-50 rounded-2xl">
+                  <div className="flex items-center gap-4 p-4 bg-linear-to-br from-rose-50 to-pink-50 rounded-2xl">
                     {currentUser.image ? (
                       <img
                         src={currentUser.image}
@@ -365,7 +365,7 @@ const Navbar = ({ currentUser }: NavbarProps) => {
                         className="w-16 h-16 rounded-full object-cover ring-4 ring-white shadow-lg"
                       />
                     ) : (
-                      <div className="w-16 h-16 rounded-full bg-gradient-to-br from-rose-400 to-pink-500 flex items-center justify-center shadow-lg">
+                      <div className="w-16 h-16 rounded-full bg-linear-to-br from-rose-400 to-pink-500 flex items-center justify-center shadow-lg">
                         <User className="w-8 h-8 text-white" />
                       </div>
                     )}
@@ -382,7 +382,7 @@ const Navbar = ({ currentUser }: NavbarProps) => {
                   <div className="space-y-3">
                     <button
                       onClick={handleLogin}
-                      className="w-full flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-rose-500 to-pink-500 text-white rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all"
+                      className="w-full flex items-center justify-center gap-2 px-6 py-3 bg-linear-to-r from-rose-500 to-pink-500 text-white rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all"
                     >
                       <LogIn className="w-5 h-5" />
                       Login
