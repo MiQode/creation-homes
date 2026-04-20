@@ -6,9 +6,7 @@ declare global {
 
 const client =
   globalThis.prisma ||
-  new PrismaClient({
-    datasourceUrl: process.env.DATABASE_URL,
-  });
+  new PrismaClient();
 
 // Fix the environment logic (important)
 if (process.env.NODE_ENV !== 'production') {
