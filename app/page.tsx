@@ -45,9 +45,9 @@ const Home = async ({ searchParams }: HomeProps) => {
   } catch (error) {
     console.error('Error fetching current user:', error);
   }
-  if (listings.length === 0) {
-    return <EmptyState showReset />;
-  }
+  // if (listings.length === 0) {
+  //   return <EmptyState showReset />;
+  // }
 
   return (
     // <ClientOnly>
