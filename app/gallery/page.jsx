@@ -68,13 +68,6 @@ const galleryData = {
       url: '/images/gallery/exterior/3.jpg',
     },
     {
-      id: 8,
-      category: 'interior',
-      title: 'Dining Area',
-      description: 'Elegant dining space for 8 guests',
-      url: 'https://images.unsplash.com/photo-1600210491892-03d54c0aaf87?w=800',
-    },
-    {
       id: 10,
       category: 'interior',
       title: 'Master Bathroom',
