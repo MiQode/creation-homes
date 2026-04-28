@@ -68,54 +68,11 @@ const galleryData = {
       url: '/images/gallery/exterior/3.jpg',
     },
     {
-      id: 4,
-      category: 'exterior',
-      title: 'Garden',
-      description: 'Lush tropical gardens',
-      //   url: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800',
-      url: '/images/gallery/exterior/4.jpg',
-    },
-
-    // Interior - Living Spaces
-    {
-      id: 5,
-      category: 'interior',
-      title: 'Living Room',
-      description: 'Spacious living area with ocean views',
-      //   url: 'https://images.unsplash.com/photo-1600210492493-0946911123ea?w=800',
-      url: '/images/gallery/interior/livingroom.jpg',
-      featured: true,
-    },
-    {
-      id: 6,
-      category: 'interior',
-      title: 'Master Bedroom',
-      description: 'King-size bed with panoramic views',
-      url: '/images/gallery/interior/masterbedroom.jpg',
-
-      //   url: 'https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=800',
-    },
-    {
-      id: 7,
-      category: 'interior',
-      title: 'Kitchen',
-      description: 'Modern chef kitchen with island',
-      url: '/images/gallery/interior/kitchen.jpg',
-      //   url: 'https://images.unsplash.com/photo-1556912167-f556f1f39faa?w=800',
-    },
-    {
       id: 8,
       category: 'interior',
       title: 'Dining Area',
       description: 'Elegant dining space for 8 guests',
       url: 'https://images.unsplash.com/photo-1600210491892-03d54c0aaf87?w=800',
-    },
-    {
-      id: 9,
-      category: 'interior',
-      title: 'Guest Bedroom',
-      description: 'Comfortable guest suite',
-      url: 'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800',
     },
     {
       id: 10,
@@ -167,15 +124,6 @@ const galleryData = {
 
     // Surrounding
     {
-      id: 16,
-      category: 'surrounding',
-      title: 'Town Access',
-      description: 'Trading center just steps away',
-      url: '/images/gallery/surrounding/town.jpg',
-      // url: 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=800',
-      featured: true,
-    },
-    {
       id: 17,
       category: 'surrounding',
       title: 'Rock of Tororo',
@@ -190,14 +138,7 @@ const galleryData = {
     //   description: 'World-class dining nearby',
     //   url: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800',
     // },
-    {
-      id: 19,
-      category: 'surrounding',
-      title: 'Local Attractions',
-      description: 'Shopping and entertainment',
-      url: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800',
-    },
-    {
+        {
       id: 20,
       category: 'surrounding',
       title: 'Fenced Yard',
